@@ -9,7 +9,7 @@ import com.aladdin.spring.model.Customer;
 
 @Component
 public class CustomerDAO {
-
+	// testing
 	// Dummy database. Initialize with some dummy values.
 	private static List customers;
 	{
