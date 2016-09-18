@@ -12,6 +12,13 @@ public class ChooseItems implements Serializable{
 	private String qiComment;
 	private Boolean ifCorrect; // ÊÇ·ñÊÇ´ð°¸
 	
+	public ChooseItems(String qiSeq, String qiContent, String qiComment, Boolean ifCorrect) {
+		super();
+		this.qiSeq = qiSeq;
+		this.qiContent = qiContent;
+		this.qiComment = qiComment;
+		this.ifCorrect = ifCorrect;
+	}
 	public String getQiSeq() {
 		return qiSeq;
 	}

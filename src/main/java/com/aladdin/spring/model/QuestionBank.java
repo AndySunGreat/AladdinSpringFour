@@ -16,6 +16,19 @@ public class QuestionBank implements Serializable {
 	private List<ChooseItems> chooseItemsList;
 	private String answers;  //A,B
 	private String questionComments;
+	
+	
+	public QuestionBank(Long questionId, String questionCategory, String questionType, String questionSubject,
+			List<ChooseItems> chooseItemsList, String answers, String questionComments) {
+		super();
+		this.questionId = questionId;
+		this.questionCategory = questionCategory;
+		this.questionType = questionType;
+		this.questionSubject = questionSubject;
+		this.chooseItemsList = chooseItemsList;
+		this.answers = answers;
+		this.questionComments = questionComments;
+	}
 	public Long getQuestionId() {
 		return questionId;
 	}
