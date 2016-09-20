@@ -49,7 +49,7 @@ public class UserDAO {
 		return null;
 	}
 	
-	public User getLogin(String accountNumber){
+	public User getLoginByAcctNum(String accountNumber){
 		
 		for(int i=0;i<users.size();i++){
 			User c = (User) users.get(i);
@@ -59,6 +59,7 @@ public class UserDAO {
 		}
 		return null;
 	}
+	
 	
 
 	/**

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aladdin.spring.dao.UserDAO;
@@ -40,10 +41,28 @@ public class UserRestController {
 		return new ResponseEntity(user, HttpStatus.OK);
 	}
 	
-	@GetMapping("/users/login/{accountNumber}")
-	public ResponseEntity getLogin(@PathVariable("accountNumber") String accountNumber) {
+	@GetMapping("/users/login")
+	public ResponseEntity getLogin(
+			@RequestParam("accountNumber") String strAcctNumber,
+			@RequestParam("password") String strPWD
+			) {
 
-		User user = userDAO.getLogin(accountNumber);
+		User user = userDAO.getLoginByAcctNum(strAcctNumber);
+		if (user == null) {
+			return new ResponseEntity("200B - No User found for AccountNumber " + strAcctNumber, HttpStatus.NOT_FOUND);
+		}else{
+			if(!user.getPassWord().equals(strPWD)){
+				return new ResponseEntity("200C - Password is incorrect " + strAcctNumber, HttpStatus.OK);
+			}
+		}
+
+		return new ResponseEntity(user, HttpStatus.OK);
+	}
+	
+	@GetMapping("/users/login/{accountNumber}")
+	public ResponseEntity getLoginByAcctNum(@PathVariable("accountNumber") String accountNumber) {
+
+		User user = userDAO.getLoginByAcctNum(accountNumber);
 		if (user == null) {
 			return new ResponseEntity("No User found for AccountNumber " + accountNumber, HttpStatus.NOT_FOUND);
 		}
