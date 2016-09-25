@@ -15,9 +15,9 @@ public class UserDAO {
 	private static List users;
 	{
 		users = new ArrayList();
-		users.add(new User(101L, "18624382583", "AndySun", "guanjiang", "18624382583","andysungj@126.com","VIP"));
-		users.add(new User(201L, "andysungj@126.com", "MattSun", "guanjiang", "18624382583","andysungj@126.com","P1"));
-		users.add(new User(301L, "18698627443", "MarryZhang", "glory", "18624382583","guanjiang0616@126.com","P1"));
+		users.add(new User(101L, "18624382583", "AndySun", "guanjiang", "18624382583","andysungj@126.com","VIP", null, null, null, null, null, null, null));
+		users.add(new User(201L, "andysungj@126.com", "MattSun", "guanjiang", "18624382583","andysungj@126.com","P1", null, null, null, null, null, null, null));
+		users.add(new User(301L, "18698627443", "MarryZhang", "glory", "18624382583","guanjiang0616@126.com","P1", null, null, null, null, null, null, null));
 	}
 
 	/**

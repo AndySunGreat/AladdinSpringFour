@@ -9,14 +9,23 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -3964715827760182252L;
 	private Long id;
 	private String accountNumber; // telephone or email
-	private String userName;
-	private String passWord;
+	private String userName;  // "精英"号
+	private String passWord;  
 	private String telephoneNumber;
 	private String emailAddress;
+	private String experience;  // 工作年限
+	private String languageDirection; // 语言方向(JAVA,C,C++,C#,PHP)
+	private String currentPostion; // 当前岗位	
+	private String currentCompany; // 当前服务公司
+    private String jinyingLevel; // 精英等级
 	private String userLevel; // VIP
+	private String jinyingMoney; // 精英金币
+	private String gender; // 用户性别
 	
+
 	public User(Long id, String accountNumber, String userName, String passWord, String telephoneNumber,
-			String emailAddress, String userLevel) {
+			String emailAddress, String experience, String languageDirection, String currentPostion,
+			String currentCompany, String jinyingLevel, String userLevel, String jinyingMoney, String gender) {
 		super();
 		this.id = id;
 		this.accountNumber = accountNumber;
@@ -24,7 +33,14 @@ public class User implements Serializable {
 		this.passWord = passWord;
 		this.telephoneNumber = telephoneNumber;
 		this.emailAddress = emailAddress;
+		this.experience = experience;
+		this.languageDirection = languageDirection;
+		this.currentPostion = currentPostion;
+		this.currentCompany = currentCompany;
+		this.jinyingLevel = jinyingLevel;
 		this.userLevel = userLevel;
+		this.jinyingMoney = jinyingMoney;
+		this.gender = gender;
 	}
 	public Long getId() {
 		return id;

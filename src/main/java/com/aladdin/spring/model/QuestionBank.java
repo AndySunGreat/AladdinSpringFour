@@ -17,7 +17,6 @@ public class QuestionBank implements Serializable {
 	private String answers;  //A,B
 	private String questionComments;
 	
-	
 	public QuestionBank(Long questionId, String questionCategory, String questionType, String questionSubject,
 			List<ChooseItems> chooseItemsList, String answers, String questionComments) {
 		super();
