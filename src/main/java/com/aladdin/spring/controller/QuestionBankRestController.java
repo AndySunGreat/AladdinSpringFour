@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aladdin.spring.dao.QuestionBankDAO;
 import com.aladdin.spring.dao.QuestionDAO;
 import com.aladdin.spring.model.BaseQuestionBank;
-import com.aladdin.spring.model.QuestionBank;
 
 @RestController
 public class QuestionBankRestController {

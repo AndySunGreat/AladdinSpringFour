@@ -1,80 +1,100 @@
 package com.aladdin.spring.model;
 
-/**
- * Created by AndySun on 2016/9/24.
- */
-public class Question {
-    private Long questionId;
-    private Long questionCategoryId;
-    private Long questionBankId;
-    private Long questionTypeId;
-    private String questionSubject; 
-    private String answerJson;
-    private String questionComments;
+import java.io.Serializable;
+import java.util.List;
 
-    public Question(Long questionId, Long questionCategoryId, Long questionBankId, Long questionTypeId, String questionSubject, String answerJson, String questionComments) {
-        this.questionId = questionId;
-        this.questionCategoryId = questionCategoryId;
-        this.questionBankId = questionBankId;
-        this.questionTypeId = questionTypeId;
-        this.questionSubject = questionSubject;
-        this.answerJson = answerJson;
-        this.questionComments = questionComments;
-    }
+public class Question implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6407707422140749874L;
+	
+	private Long questionId;
+	private String questionBankName; // Java Core,
+	private String questionCategoryName; // Java,C,C#
+	private String questionTypeName; //单选,多选,判断,问答
+	private String questionSubject; //问题
+	private List<ChooseItems> chooseItemsList;
+	private String answers;  //A,B
+	private String questionComments;
+	private String answerJson;
+	
+	
+	
+	public Question(Long questionId,String questionBankName, String questionCategoryName, String questionTypeName, String questionSubject,
+			List<ChooseItems> chooseItemsList, String answers, String questionComments) {
+		super();
+		this.questionId = questionId;
+		this.questionBankName = questionBankName;
+		this.questionCategoryName = questionCategoryName;
+		this.questionTypeName = questionTypeName;
+		this.questionSubject = questionSubject;
+		this.chooseItemsList = chooseItemsList;
+		this.answers = answers;
+		this.questionComments = questionComments;
+	}
+	
+	
+	
+	public String getQuestionBankName() {
+		return questionBankName;
+	}
 
-    public Long getQuestionId() {
-        return questionId;
-    }
 
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
-    }
 
-    public Long getQuestionCategoryId() {
-        return questionCategoryId;
-    }
+	public void setQuestionBankName(String questionBankName) {
+		this.questionBankName = questionBankName;
+	}
 
-    public void setQuestionCategoryId(Long questionCategoryId) {
-        this.questionCategoryId = questionCategoryId;
-    }
 
-    public Long getQuestionBankId() {
-        return questionBankId;
-    }
 
-    public void setQuestionBankId(Long questionBankId) {
-        this.questionBankId = questionBankId;
-    }
-
-    public Long getQuestionTypeId() {
-        return questionTypeId;
-    }
-
-    public void setQuestionTypeId(Long questionTypeId) {
-        this.questionTypeId = questionTypeId;
-    }
-
-    public String getQuestionSubject() {
-        return questionSubject;
-    }
-
-    public void setQuestionSubject(String questionSubject) {
-        this.questionSubject = questionSubject;
-    }
-
-    public String getAnswerJson() {
-        return answerJson;
-    }
-
-    public void setAnswerJson(String answerJson) {
-        this.answerJson = answerJson;
-    }
-
-    public String getQuestionComments() {
-        return questionComments;
-    }
-
-    public void setQuestionComments(String questionComments) {
-        this.questionComments = questionComments;
-    }
+	public Long getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(Long questionId) {
+		this.questionId = questionId;
+	}
+	public String getQuestionSubject() {
+		return questionSubject;
+	}
+	public void setQuestionSubject(String questionSubject) {
+		this.questionSubject = questionSubject;
+	}
+	public List<ChooseItems> getChooseItemsList() {
+		return chooseItemsList;
+	}
+	public void setChooseItemsList(List<ChooseItems> chooseItemsList) {
+		this.chooseItemsList = chooseItemsList;
+	}
+	public String getAnswers() {
+		return answers;
+	}
+	public void setAnswers(String answers) {
+		this.answers = answers;
+	}
+	public String getQuestionComments() {
+		return questionComments;
+	}
+	public void setQuestionComments(String questionComments) {
+		this.questionComments = questionComments;
+	}
+	public String getQuestionCategoryName() {
+		return questionCategoryName;
+	}
+	public void setQuestionCategoryName(String questionCategoryName) {
+		this.questionCategoryName = questionCategoryName;
+	}
+	public String getQuestionTypeName() {
+		return questionTypeName;
+	}
+	public void setQuestionTypeName(String questionTypeName) {
+		this.questionTypeName = questionTypeName;
+	}
+	public String getAnswerJson() {
+		return answerJson;
+	}
+	public void setAnswerJson(String answerJson) {
+		this.answerJson = answerJson;
+	}
+	
 }

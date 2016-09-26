@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.aladdin.spring.model.BaseQuestionBank;
 import com.aladdin.spring.model.ChooseItems;
-import com.aladdin.spring.model.Customer;
-import com.aladdin.spring.model.QuestionBank;
-
 @Component
 public class QuestionBankDAO {
 	// testing

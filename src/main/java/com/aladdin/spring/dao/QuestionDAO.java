@@ -6,8 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.aladdin.spring.model.ChooseItems;
-import com.aladdin.spring.model.Customer;
-import com.aladdin.spring.model.QuestionBank;
+import com.aladdin.spring.model.Question;
 
 @Component
 public class QuestionDAO {
@@ -34,10 +33,10 @@ public class QuestionDAO {
 		chooseItemsList3.add(new ChooseItems("D","都不输出","comments2",true));
 		
 		questionBanks = new ArrayList();
-		questionBanks.add(new QuestionBank(101L, "Java", "单选", "Java 中能创建 volatile 数组吗？",chooseItemsList1,"A","questionComments"));
-		questionBanks.add(new QuestionBank(201L, "Java", "多选","下面哪些是Thread类的方法（）",chooseItemsList2,"ABD",""));
+		questionBanks.add(new Question(101L,"Java Core", "Java", "单选", "Java 中能创建 volatile 数组吗？",chooseItemsList1,"A","questionComments"));
+		questionBanks.add(new Question(201L,"Java Core","Java", "多选","下面哪些是Thread类的方法（）",chooseItemsList2,"ABD",""));
 	
-		questionBanks.add(new QuestionBank(301L, "Java", "单选","下面程序的运行结果：/n  "
+		questionBanks.add(new Question(301L,"Java Core", "Java", "单选","下面程序的运行结果：/n  "
 				+ "public static void main(String args[]) { /n"
 				+ "Thread t = new Thread() /n"
 				+ "public void run() { /n"
@@ -66,10 +65,10 @@ public class QuestionDAO {
 	 *            customer id
 	 * @return customer object for given id
 	 */
-	public QuestionBank get(Long id) {
+	public Question get(Long id) {
 
 		for(int i=0;i<questionBanks.size();i++){
-			QuestionBank c = (QuestionBank) questionBanks.get(i);
+			Question c = (Question) questionBanks.get(i);
 //		for (Customer c : customers) {
 			if (c.getQuestionId().equals(id)) {
 				return c;
@@ -86,10 +85,10 @@ public class QuestionDAO {
 	 *            Customer object
 	 * @return customer object with updated id
 	 */
-	public QuestionBank create(QuestionBank questionBank) {
-		questionBank.setQuestionId(System.currentTimeMillis());
-		questionBanks.add(questionBank);
-		return questionBank;
+	public Question create(Question question) {
+		question.setQuestionId(System.currentTimeMillis());
+		questionBanks.add(question);
+		return question;
 	}
 
 	/**
@@ -102,7 +101,7 @@ public class QuestionDAO {
 	 */
 	public Long delete(Long id) {
 		for(int i=0;i<questionBanks.size();i++){
-			QuestionBank c = (QuestionBank) questionBanks.get(i);
+			Question c = (Question) questionBanks.get(i);
 		//for (Customer c : customers) {
 			if (c.getQuestionId().equals(id)) {
 				questionBanks.remove(c);
@@ -121,16 +120,16 @@ public class QuestionDAO {
 	 * @param customer
 	 * @return customer object with id
 	 */
-	public QuestionBank update(Long id, QuestionBank questionBank) {
+	public Question update(Long id, Question question) {
 
 		for(int i=0;i<questionBanks.size();i++){
-			QuestionBank c = (QuestionBank) questionBanks.get(i);
+			Question c = (Question) questionBanks.get(i);
 		//for (Customer c : customers) {
 			if (c.getQuestionId().equals(id)) {
-				questionBank.setQuestionId(c.getQuestionId());
+				question.setQuestionId(c.getQuestionId());
 				questionBanks.remove(c);
-				questionBanks.add(questionBank);
-				return questionBank;
+				questionBanks.add(question);
+				return question;
 			}
 		}
 

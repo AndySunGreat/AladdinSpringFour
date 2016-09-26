@@ -14,44 +14,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aladdin.spring.dao.QuestionDAO;
-import com.aladdin.spring.model.QuestionBank;
+import com.aladdin.spring.model.Question;
 
 @RestController
 public class QuestionRestController {
 
 	
 	@Autowired
-	private QuestionDAO questionBankDAO;
+	private QuestionDAO questionDAO;
 
 	
 	@GetMapping("/question")
-	public List getQuestionBanks() {
-		return questionBankDAO.list();
+	public List getAllQuestions() {
+		return questionDAO.list();
 	}
 
 	@GetMapping("/question/{id}")
-	public ResponseEntity getQuestionBank(@PathVariable("id") Long id) {
+	public ResponseEntity getQuestion(@PathVariable("id") Long id) {
 
-		QuestionBank questionBank = questionBankDAO.get(id);
-		if (questionBank == null) {
+		Question question = questionDAO.get(id);
+		if (question == null) {
 			return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity(questionBank, HttpStatus.OK);
+		return new ResponseEntity(question, HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/question")
-	public ResponseEntity createQuestionBank(@RequestBody QuestionBank questionBank) {
+	public ResponseEntity createQuestion(@RequestBody Question question) {
 
-		questionBankDAO.create(questionBank);
+		questionDAO.create(question);
 
-		return new ResponseEntity(questionBank, HttpStatus.OK);
+		return new ResponseEntity(question, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/question/{id}")
-	public ResponseEntity deleteQuestionBank(@PathVariable Long id) {
+	public ResponseEntity deleteQuestion(@PathVariable Long id) {
 
-		if (null == questionBankDAO.delete(id)) {
+		if (null == questionDAO.delete(id)) {
 			return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
 		}
 
@@ -60,15 +60,15 @@ public class QuestionRestController {
 	}
 
 	@PutMapping("/question/{id}")
-	public ResponseEntity updateQuestionBank(@PathVariable Long id, @RequestBody QuestionBank questionBank) {
+	public ResponseEntity updateQuestionBank(@PathVariable Long id, @RequestBody Question question) {
 
-		questionBank = questionBankDAO.update(id, questionBank);
+		question = questionDAO.update(id, question);
 
-		if (null == questionBank) {
+		if (null == question) {
 			return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity(questionBank, HttpStatus.OK);
+		return new ResponseEntity(question, HttpStatus.OK);
 	}
 
 }
